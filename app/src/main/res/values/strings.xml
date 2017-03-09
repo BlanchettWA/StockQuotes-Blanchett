@@ -1,3 +1,6 @@
 <resources>
-    <string name="app_name">StockQuotes-Blanchett</string>
+    <string name="app_name">Stock Info Retrieval</string>
+    <string name="companylabel"><b>Stock Name:</b> </string>
+    <string name="symbollabel"><b>Stock Symbol: </b></string>
+
 </resources>

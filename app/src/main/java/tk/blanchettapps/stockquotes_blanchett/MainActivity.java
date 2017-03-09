@@ -7,8 +7,8 @@ import android.os.Bundle;
 public class MainActivity extends AppCompatActivity {
 
     Stock dataGrab;
-    boolean workingTask = false;
-
+    String[] stockValues;
+    boolean grabbingData = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,11 +24,30 @@ public class MainActivity extends AppCompatActivity {
 
 }
 
-class retreiveStocks extends AsyncTask<Void, Void, Void>
+class retreiveStocks extends AsyncTask<String, Void, String[]>
 {
+    @Override
+    protected void onPreExecute() {
+        super.onPreExecute();
+    }
 
     @Override
-    protected Void doInBackground(Void... params) {
+    protected void onPostExecute(String[] strings) {
+        super.onPostExecute(strings);
+    }
+
+    @Override
+    protected void onCancelled() {
+        super.onCancelled();
+    }
+
+    @Override
+    protected String[] doInBackground(String... params)
+    {
+
+
+
+
         return null;
     }
 }
