@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Stock Info Retrieval</string>
-    <string name="companylabel"><b>Stock Name:</b> </string>
-    <string name="symbollabel"><b>Stock Symbol: </b></string>
+    <string name="companyLabel"><b>Stock Name:</b> </string>
+    <string name="symbolLabel"><b>Stock Symbol: </b></string>
+    <string name="valueless">..........</string>
 
 </resources>
