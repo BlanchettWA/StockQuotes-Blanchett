@@ -32,14 +32,14 @@
 
 
         <EditText
-            android:layout_width="268dp"
+            android:layout_width="204dp"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:ems="10"
             android:id="@+id/targetSymbol"
             android:layout_row="1"
             android:layout_column="0"
-            android:layout_columnSpan="2"
+            android:layout_columnSpan="3"
             android:hint="Insert Symbol..."
             android:singleLine="true"
             tools:inputType="textCapCharacters" />
@@ -108,22 +108,24 @@
 
         <TextView
             android:id="@+id/lastTradeTimeBox"
+            android:layout_width="84dp"
+            android:layout_height="wrap_content"
             android:layout_column="0"
             android:layout_row="7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:text="@string/valueless"
-            />
+            android:textAlignment="center" />
 
         <TextView
             android:id="@+id/lastTradePriceLabel"
-            android:layout_column="1"
-            android:layout_row="6"
-            android:layout_width="wrap_content"
+            android:layout_width="123dp"
             android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_columnSpan="1"
+            android:layout_row="6"
             android:text="Last Trade Price:"
-            android:textStyle="normal|bold"
-            android:textAlignment="center" />
+            android:layout_gravity="start"
+            android:textAlignment="viewStart"
+            android:textStyle="normal|bold" />
 
         <TextView
             android:id="@+id/tradeChangeLabel"
@@ -148,21 +150,21 @@
 
         <TextView
             android:id="@+id/lastTradePriceBox"
+            android:layout_width="96dp"
+            android:layout_height="wrap_content"
             android:layout_column="1"
             android:layout_row="7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:text="@string/valueless"
-            />
+            android:textAlignment="center" />
 
         <TextView
             android:id="@+id/changeBox"
+            android:layout_width="77dp"
+            android:layout_height="wrap_content"
             android:layout_column="2"
             android:layout_row="7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:text="@string/valueless"
-            />
+            android:textAlignment="center" />
 
         <Space
             android:layout_width="wrap_content"
