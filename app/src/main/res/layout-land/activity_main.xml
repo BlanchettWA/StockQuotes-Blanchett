@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="tk.blanchettapps.stockquotes_blanchett.MainActivity">
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ProgressBar
+            android:id="@+id/loadProgress"
+            style="@android:style/Widget.ProgressBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="8"
+            android:layout_row="0"
+            android:indeterminate="true"
+            tools:visibility="gone" />
+
+        <TextView
+            android:id="@+id/instructionLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_column="0"
+            android:layout_columnSpan="4"
+            android:layout_row="0"
+            android:text="Input the stock symbol to retrieve information for:"
+            android:textAlignment="viewStart"
+            android:layout_gravity="start"
+            android:textStyle="normal|italic" />
+
+
+                <EditText
+                    android:layout_width="204dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:id="@+id/targetSymbol"
+                    android:layout_row="1"
+                    android:layout_column="0"
+                    android:layout_columnSpan="3"
+                    android:hint="Insert Symbol..."
+                    tools:inputType="textCapCharacters" />
+
+                <Button
+                    android:text="Retrieve"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/button"
+                    android:layout_row="1"
+                    android:layout_column="3" />
+
+
+        <TextView
+            android:id="@+id/companyLabelBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="4"
+            android:layout_row="1"
+            android:layout_weight="1"
+            android:text="@string/companyLabel"
+            android:textSize="18sp"
+            android:textStyle="normal|bold" />
+
+        <TextView
+            android:id="@+id/retirevedCompanyBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="5"
+            android:layout_columnSpan="2"
+            android:layout_row="1"
+            android:text="@string/valueless"
+            android:textAlignment="viewStart"
+            android:layout_gravity="start"/>
+
+        <TextView
+            android:id="@+id/rangeLabel"
+            android:layout_column="0"
+            android:layout_row="2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="52 Week Range: "
+            android:textStyle="normal|bold" />
+
+        <TextView
+            android:id="@+id/rangeBox"
+            android:layout_column="1"
+            android:layout_row="2"
+            android:layout_columnSpan="2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/valueless"
+            />
+
+
+             <TextView
+                 android:layout_width="127dp"
+                 android:layout_height="wrap_content"
+                 android:id="@+id/stockLabelBox"
+                 android:text="@string/symbolLabel"
+                 android:layout_weight="1"
+                 android:layout_row="2"
+                 android:layout_column="4"
+                 android:textSize="18sp"
+                 android:textStyle="normal|bold" />
+
+             <TextView
+                 android:text="@string/valueless"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:id="@+id/retrievedStockSymbol"
+                 android:layout_columnSpan="2"
+                 android:layout_column="5"
+                 android:layout_row="2"/>
+        <Space
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_row="3"
+            android:layout_column="0"
+            />
+
+
+        <TextView
+            android:id="@+id/lastTradeTimeLabel"
+            android:layout_column="0"
+            android:layout_row="4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Last Trade Time:"
+            android:textStyle="normal|bold"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/lastTradeTimeBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_row="4"
+            android:text="@string/valueless"
+            android:textAlignment="viewStart"
+            android:layout_gravity="start"/>
+        <Space
+            android:layout_width="30dp"
+            android:layout_height="20dp"
+            android:layout_row="4"
+            android:layout_column="2"
+            />
+
+        <TextView
+            android:id="@+id/lastTradePriceLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="3"
+            android:layout_columnSpan="1"
+            android:layout_gravity="start"
+            android:layout_row="4"
+            android:text="Last Trade Price:"
+            android:textAlignment="viewStart"
+            android:textStyle="normal|bold" />
+
+        <TextView
+            android:id="@+id/lastTradePriceBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="4"
+            android:layout_row="4"
+            android:text="@string/valueless"
+            android:layout_gravity="start"
+            android:textAlignment="viewStart" />
+
+        <Space
+            android:layout_width="5dp"
+            android:layout_height="10dp"
+            android:layout_row="4"
+            android:layout_column="5"
+            />
+
+        <TextView
+            android:id="@+id/tradeChangeLabel"
+            android:layout_column="6"
+            android:layout_row="4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Change:"
+            android:textStyle="normal|bold"
+            android:textAlignment="viewStart"
+            android:layout_gravity="start"/>
+
+        <TextView
+            android:id="@+id/changeBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="7"
+            android:layout_row="4"
+            android:layout_columnSpan="2"
+            android:text="@string/valueless"
+            android:textAlignment="viewStart"
+            android:layout_gravity="start"/>
+
+
+
+    </GridLayout>
+
+</RelativeLayout>
