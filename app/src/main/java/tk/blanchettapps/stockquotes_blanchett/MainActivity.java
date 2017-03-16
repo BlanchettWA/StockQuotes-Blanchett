@@ -23,7 +23,37 @@ public class MainActivity extends AppCompatActivity {
     String symbolText = "";
     ProgressBar loader;
 TextView[] valueWindows = new TextView[6];
+    String[] currentValues = new String[6];
     Context appcontext;
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState)
+    {
+        super.onSaveInstanceState(outState);
+        outState.putBoolean("grabbingData",grabbingData);
+        outState.putString("currsymbol",symbolText);
+        outState.putStringArray("values",currentValues);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        grabbingData = savedInstanceState.getBoolean("grabbingData");
+        if (grabbingData)
+        {
+            Toast.makeText(appcontext, "Restarting retrival, please do not rotate while process is running", Toast.LENGTH_SHORT).show();
+            rStock doTask = new rStock();
+            doTask.execute(symbolText);
+        }
+
+        symbolText = savedInstanceState.getString("currsymbol");
+        userInput.setText(symbolText);
+
+        currentValues = savedInstanceState.getStringArray("values");
+        for(int i = 0; i < currentValues.length;i++ ){valueWindows[i].setText(currentValues[i]);}
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,10 +123,9 @@ TextView[] valueWindows = new TextView[6];
             try {
 
                 if (params[0].length() < 0){
-                    IOException badlenght = new IOException();
-                    Toast.makeText(appcontext, "Please type a symbol", Toast.LENGTH_SHORT).show();
-                    throw badlenght;
-                } else {
+                    result = null;
+                }
+                else {
 
                     toproc.load();
                     result[0] = toproc.getSymbol();
@@ -110,17 +139,32 @@ TextView[] valueWindows = new TextView[6];
                 e.printStackTrace();
                 result = null;
             }
+
+            catch (IndexOutOfBoundsException oob)
+            {
+                oob.printStackTrace();
+                result = null;
+            }
             return result;
         }
 
         @Override
         protected void onPostExecute(String[] strings) {
             super.onPostExecute(strings);
+            grabbingData = false;
             loader.setVisibility(View.GONE);
-            if (strings == null){ Toast.makeText(appcontext, "Invalid stock symbol!", Toast.LENGTH_SHORT).show();}
+            if (strings == null)
+            {
+                Toast.makeText(appcontext, "Error encountered! Check the stock symbol", Toast.LENGTH_SHORT).show();
+                for(int i = 0; i < 6;i++ ){
+                    currentValues[i] = " ";
+                    valueWindows[i].setText(" ");
+                }
+            }
             else
             {
                 for(int i = 0; i < strings.length;i++ ){
+                    currentValues[i] = strings[i];
                     valueWindows[i].setText(strings[i]);
                 }
             }
